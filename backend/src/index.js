@@ -6,6 +6,7 @@ import { router as coldrinkRoute } from "../routes/coldrink.route.js";
 import { router as authRoute } from "../routes/auth.route.js";
 import cors from 'cors'
 import dotenv from "dotenv";
+import { mobileRoute } from "../routes/mobile.route.js";
 dotenv.config();
 
 const app = express();
@@ -18,7 +19,7 @@ app.use("/",personRoute);
 app.use("/",studentRoute);
 app.use("/", coldrinkRoute)
 app.use("/", authRoute)
-
+app.use("/", mobileRoute)
 app.use((req,res) =>{
     res.send("Page Not Found")
 })
