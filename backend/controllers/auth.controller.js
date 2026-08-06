@@ -1,7 +1,7 @@
 import bcrypt from "bcryptjs";
 import User from "../model/user.model.js";
 import generateToken from "../utils/generateToken.js";
-import { Suspense } from "react";
+
 
 
 // export const register = async (req, res) => {
