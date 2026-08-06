@@ -6,7 +6,7 @@ import generateToken from "../utils/generateToken.js";
 
 // export const register = async (req, res) => {
 //   try {
-   
+
 //     const { name, email, password } = req.body;
 //     if (!name || !email || !password) {
 //       return res.status(400).json({
@@ -23,7 +23,7 @@ import generateToken from "../utils/generateToken.js";
 //       });
 //     }
 
-   
+
 //     const salt = await bcrypt.genSalt(10);
 //     const hashedPassword = await bcrypt.hash(password, salt);
 
@@ -34,7 +34,7 @@ import generateToken from "../utils/generateToken.js";
 //       password: hashedPassword,
 //     });
 
-   
+
 //     await user.save();
 //     res.status(201).json({
 //       success: true,
@@ -55,76 +55,76 @@ import generateToken from "../utils/generateToken.js";
 
 
 
-export const login = async (req, res) => {
-  try {
-  
-    const { email, password } = req.body;
-    if (!email || !password) {
-      return res.status(400).json({
-        success: false,
-        message: "Please fill all the fields",
-      });
-    }
-    const user = await User.findOne({ email });
+// export const login = async (req, res) => {
+//   try {
 
-    if (!user) {
+//     const { email, password } = req.body;
+//     if (!email || !password) {
+//       return res.status(400).json({
+//         success: false,
+//         message: "Please fill all the fields",
+//       });
+//     }
+//     const user = await User.findOne({ email });
+
+//     if (!user) {
+//       return res.status(404).json({
+//         success: false,
+//         message: "User not found",
+//       });
+//     }
+//     const isPasswordMatch = await bcrypt.compare(password, user.password);
+
+//     if (!isPasswordMatch) {
+//       return res.status(401).json({
+//         success: false,
+//         message: "Invalid email or password",
+//       });
+//     }
+
+//     const token = generateToken(user._id);
+//     res.status(200).json({
+//       success: true,
+//       message: "Login successful",
+//       token,
+//       user: {
+//         id: user._id,
+//         name: user.name,
+//         email: user.email,
+//       },
+//     });
+
+//   } catch (error) {
+//     res.status(500).json({
+//       success: false,
+//       message: error.message,
+//     });
+//   }
+// };
+
+
+
+
+export const register = async (req, res) => {
+  try {
+    const { name, email, password } = req.body;
+    if (!name || !email || !password) {
       return res.status(404).json({
         success: false,
-        message: "User not found",
-      });
-    }
-    const isPasswordMatch = await bcrypt.compare(password, user.password);
-
-    if (!isPasswordMatch) {
-      return res.status(401).json({
-        success: false,
-        message: "Invalid email or password",
-      });
-    }
-
-    const token = generateToken(user._id);
-    res.status(200).json({
-      success: true,
-      message: "Login successful",
-      token,
-      user: {
-        id: user._id,
-        name: user.name,
-        email: user.email,
-      },
-    });
-
-  } catch (error) {
-    res.status(500).json({
-      success: false,
-      message: error.message,
-    });
-  }
-};
-
-
-
-
-export const register = async(req,res) =>{
-  try {
-    const {name,email,password} = req.body;
-    if(!name || !email || !password){
-      return res.status(404).json({
-        success: false,
-        message : "All fields are required"
+        message: "All fields are required"
       })
     }
-    const existingUser = await User.findOne({email});
+    const existingUser = await User.findOne({ email });
 
-    if(existingUser){
-       return res.status(400).json({
+    if (existingUser) {
+      return res.status(400).json({
         success: false,
-        message : "This mail is already exists",
-       })
+        message: "This mail is already exists",
+      })
     }
 
     const salt = await bcrypt.genSalt(12);
-    const hashPassword = await bcrypt.hash(password,salt);
+    const hashPassword = await bcrypt.hash(password, salt);
 
     const user = new User({
       name,
@@ -132,8 +132,8 @@ export const register = async(req,res) =>{
       password: hashPassword
     })
 
-     await user.save();
-     res.status(201).json({
+    await user.save();
+    res.status(201).json({
       success: true,
       message: "User register successfully",
       data: {
@@ -141,9 +141,9 @@ export const register = async(req,res) =>{
         name: user.name,
         email: user.email,
       }
-     })
-    
-    
+    })
+
+
   } catch (error) {
     console.log("Failed to register User", error.message);
     res.status(400).json({
@@ -155,5 +155,56 @@ export const register = async(req,res) =>{
 }
 
 
+export const login = async (req, res) => {
+  try {
+    const { email, password } = req.body;
+
+    if (!email || !password) {
+      return res.status(500).json({
+        success: false,
+        message: "All fields are required"
+      })
+    }
+
+
+    const user = await User.findOne({ email });
+
+   if (!user) {
+      return res.status(404).json({
+        success: false,
+        message: "User not exits"
+      })
+    }
+    const isPasswordMatch = await bcrypt.compare(password, user.password);
+    if (!isPasswordMatch) {
+      return res.status(401).json({
+        success: false,
+        message: "Password does not match"
+      })
+    }
+
+    const token = await generateToken(user._id)
+
+    res.status(200).json({
+      success: true,
+      message : "User login successfully",
+      token,
+      data: {
+        id: user._id,
+        name: user.name,
+        email: user.email,
+      }
+    })
+
+  } catch (error) {
+    console.log("Failed to login User ", error.message);
+    res.status(400).json({
+      success: false,
+      message: "Failed to login User",
+      error: error.message
+    })
+
+  }
+}
 
 
