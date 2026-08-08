@@ -5,7 +5,6 @@ import User from "../model/user.model.js";
 const authMiddleware = async (req, res, next) => {
   try {
     const authHeader = req.headers.authorization;
-
     if (!authHeader || !authHeader.startsWith("Bearer ")) {
       return res.status(401).json({
         success: false,
@@ -23,6 +22,7 @@ const authMiddleware = async (req, res, next) => {
     }
     req.user = user;   
     next();
+
   } catch (error) {
     return res.status(401).json({
       success: false,
