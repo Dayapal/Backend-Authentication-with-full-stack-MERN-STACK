@@ -16,9 +16,7 @@ export const createPerson = async(req,res) =>{
             success:false,
             message:"Failed to create",
             error: error.message
-        })
-
-        
+        })        
     }
 }
 

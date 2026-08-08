@@ -69,15 +69,13 @@ export const updateColdrink = async(req,res) =>{
                 success: false,
                 message: "coldrink not found",
             })
-        }
-        
+        } 
         console.log("Coldrinkg updates successfully");
         res.status(200).json({
             success:true,
             message: "coldrink updates successfully",
             data: coldrink,
         })
-        
     } catch (error) {
         console.log("Failed to update coldrink", error.message);
         res.status(400).json({
