@@ -155,56 +155,105 @@ export const register = async (req, res) => {
 }
 
 
+// export const login = async (req, res) => {
+//   try {
+//     const { email, password } = req.body;
+
+//     if (!email || !password) {
+//       return res.status(500).json({
+//         success: false,
+//         message: "All fields are required"
+//       })
+//     }
+
+
+//     const user = await User.findOne({ email });
+
+//    if (!user) {
+//       return res.status(404).json({
+//         success: false,
+//         message: "User not exits"
+//       })
+//     }
+//     const isPasswordMatch = await bcrypt.compare(password, user.password);
+//     if (!isPasswordMatch) {
+//       return res.status(401).json({
+//         success: false,
+//         message: "Password does not match"
+//       })
+//     }
+
+//     const token = await generateToken(user._id)
+
+//     res.status(200).json({
+//       success: true,
+//       message : "User login successfully",
+//       token,
+//       data: {
+//         id: user._id,
+//         name: user.name,
+//         email: user.email,
+//       }
+//     })
+
+//   } catch (error) {
+//     console.log("Failed to login User ", error.message);
+//     res.status(400).json({
+//       success: false,
+//       message: "Failed to login User",
+//       error: error.message
+//     })
+
+//   }
+// }
+
+
+
 export const login = async (req, res) => {
   try {
     const { email, password } = req.body;
-
     if (!email || !password) {
-      return res.status(500).json({
+      return res.status(404).json({
         success: false,
         message: "All fields are required"
       })
     }
-
-
     const user = await User.findOne({ email });
 
-   if (!user) {
+    if (!user) {
       return res.status(404).json({
         success: false,
-        message: "User not exits"
+        message: "User not Found"
       })
     }
-    const isPasswordMatch = await bcrypt.compare(password, user.password);
+
+    const isPasswordMatch = await bcrypt.compare(password, user.password)
     if (!isPasswordMatch) {
-      return res.status(401).json({
+      return res.status(400).json({
         success: false,
         message: "Password does not match"
       })
     }
 
-    const token = await generateToken(user._id)
-
+    const token = generateToken(user._id)
     res.status(200).json({
       success: true,
-      message : "User login successfully",
+      message: "User Log in successfully",
       token,
       data: {
-        id: user._id,
+        id: user.id,
         name: user.name,
-        email: user.email,
+        email: user.email
       }
     })
+
 
   } catch (error) {
     console.log("Failed to login User ", error.message);
     res.status(400).json({
       success: false,
-      message: "Failed to login User",
+      message: "Failed to Login User",
       error: error.message
     })
-
   }
 }
-
-
