@@ -11,7 +11,7 @@ const CreateMobile = () => {
         camera: "",
         companyName: ""
     })
-
+    
     const handleChange = (e) => {
         setFormData({
             ...formData,
