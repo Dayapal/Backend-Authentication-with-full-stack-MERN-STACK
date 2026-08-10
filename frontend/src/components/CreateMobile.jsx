@@ -111,7 +111,6 @@ const CreateMobile = () => {
       [e.target.name]: e.target.value,
     });
   };
-
   const hanldeSubmit = async (e) => {
     e.preventDefault();
 
@@ -142,10 +141,7 @@ const CreateMobile = () => {
   return (
     <div className="min-h-screen bg-linear-to-br from-slate-100 via-blue-50 to-indigo-100 px-4 py-10">
 
-      {/* Main Container */}
       <div className="mx-auto max-w-3xl">
-
-        {/* Header */}
         <div className="mb-8 text-center">
           <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-indigo-600 text-3xl shadow-lg">
             📱
@@ -159,8 +155,6 @@ const CreateMobile = () => {
             Add a new mobile product to your collection
           </p>
         </div>
-
-        {/* Form Card */}
         <div className="rounded-3xl bg-white p-6 shadow-xl shadow-slate-200/60 md:p-10">
 
           <form onSubmit={hanldeSubmit}>
