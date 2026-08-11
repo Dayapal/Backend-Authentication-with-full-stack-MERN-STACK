@@ -10,7 +10,6 @@ const App = () => {
       <CreateMobile/>
       <MobileFetch/>
 
-      
     </div>
   )
 }

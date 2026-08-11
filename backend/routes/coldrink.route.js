@@ -3,7 +3,6 @@ import { createColdrink, deleteColdrink, getColdrink, updateColdrink } from '../
 import authMiddleware from '../middleware/authMiddleware.js';
 export const router = express.Router();
 
-
 router.post("/coldrink", authMiddleware, createColdrink)
 router.get("/coldrinks", authMiddleware, getColdrink)
 router.put("/coldrink/:id", authMiddleware, updateColdrink)

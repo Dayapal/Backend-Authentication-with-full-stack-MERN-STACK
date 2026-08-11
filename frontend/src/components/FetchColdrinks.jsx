@@ -21,7 +21,6 @@ const FetchColdrinks = () => {
     }
   };
 
-
   const addDrink = async () => {
     try {
       const res = await axios.post(
@@ -85,7 +84,6 @@ const FetchColdrinks = () => {
     }
   };
 
-
   const handleSubmit = () => {
     if (editId) {
       updateDrink();
@@ -104,8 +102,6 @@ const FetchColdrinks = () => {
       <h1 className="text-4xl font-bold text-center text-blue-700 mb-8">
         Cold Drinks CRUD App
       </h1>
-
-
       <div className="max-w-xl mx-auto bg-white rounded-xl shadow-lg p-6">
 
         <h2 className="text-2xl font-semibold mb-5">
@@ -113,7 +109,6 @@ const FetchColdrinks = () => {
         </h2>
 
         <div className="space-y-4">
-
           <input
             type="text"
             placeholder="Enter Name"
@@ -152,7 +147,6 @@ const FetchColdrinks = () => {
             >
               {editId ? "Update Drink" : "Add Drink"}
             </button>
-
             {editId && (
               <button
                 onClick={() => {
@@ -207,13 +201,11 @@ const FetchColdrinks = () => {
                 >
                   Edit
                 </button>
-
                 <button
                   onClick={() => deleteDrink(item._id)}
                   className="flex-1 bg-red-600 text-white py-2 rounded-lg hover:bg-red-700">
                   Delete
                 </button>
-
               </div>
 
             </div>
@@ -221,7 +213,6 @@ const FetchColdrinks = () => {
         )}
 
       </div>
-
     </div>
   );
 };

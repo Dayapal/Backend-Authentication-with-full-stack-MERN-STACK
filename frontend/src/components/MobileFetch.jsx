@@ -175,7 +175,6 @@ const MobileFetch = () => {
         </div>
       )}
 
-      {/* Mobile Count */}
       {!loading && mobile.length > 0 && (
         <div className="mx-auto mt-8 max-w-7xl text-center">
 
