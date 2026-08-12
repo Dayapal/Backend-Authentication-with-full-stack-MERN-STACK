@@ -194,7 +194,6 @@ const CreateMobile = () => {
                 />
               </div>
 
-              {/* Company */}
               <div>
                 <label
                   htmlFor="companyName"

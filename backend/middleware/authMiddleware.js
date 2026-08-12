@@ -31,4 +31,19 @@ const authMiddleware = async (req, res, next) => {
 
 export default authMiddleware;
 
-
+// export const middleware = async(req,res) =>{
+//   try {
+//     const authHeader = req.body.authorization;
+//     if(!authHeader || authHeader.startsWith("Bearer ")){
+//       return res.status(404)
+//     }
+    
+//   } catch (error) {
+//     console.log("Invalied or Expired Token", error.message)
+//     return res.status(401).json({
+//       success: false,
+//       message: "Invalid or Expired Token",
+//     });
+//   }
+  
+// }
