@@ -47,3 +47,8 @@ export default authMiddleware;
 //   }
   
 // }
+
+
+export const middleware = async(req,res) =>{
+
+}
