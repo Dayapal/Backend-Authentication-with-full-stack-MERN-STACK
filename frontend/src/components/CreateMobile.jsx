@@ -170,10 +170,8 @@ const CreateMobile = () => {
               </p>
             </div>
 
-            {/* Form Grid */}
+    
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-
-              {/* Mobile Name */}
               <div>
                 <label
                   htmlFor="name"
@@ -357,8 +355,6 @@ const CreateMobile = () => {
 
           </form>
         </div>
-
-        {/* Footer */}
         <p className="mt-6 text-center text-sm text-slate-400">
           Make sure all mobile information is correct before submitting.
         </p>
