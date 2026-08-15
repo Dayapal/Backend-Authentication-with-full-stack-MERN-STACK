@@ -31,7 +31,6 @@ const Login = () => {
                 password: ""
             })
             navigate("/dashboard");
-
         } catch (error) {
             console.log("Failed to login User")
             alert("Failed to Login User")
