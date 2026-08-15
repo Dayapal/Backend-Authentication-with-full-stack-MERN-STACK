@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom'
 import FetchColdrinks from './components/FetchColdrinks'
 import MobileFetch from './components/MobileFetch'
 import CreateMobile from './components/CreateMobile'

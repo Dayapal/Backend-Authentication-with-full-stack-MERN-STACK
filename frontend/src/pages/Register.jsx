@@ -3,20 +3,17 @@ import React from 'react'
 import { useState } from 'react'
 
 const Register = () => {
-
     const [formData, setFormData] = useState({
         name: "",
         email: "",
         password: ""
     })
-
     const handleChange = (e) => {
         setFormData({
             ...formData,
             [e.target.name]: e.target.value
         })
     }
-
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
@@ -35,9 +32,6 @@ const Register = () => {
 
         }
     }
-
-
-
     return (
         <div className='  flex flex-col  bg-amber-500 text-center'>
             <h1 className='text-2xl text-white'>Register Page</h1>
