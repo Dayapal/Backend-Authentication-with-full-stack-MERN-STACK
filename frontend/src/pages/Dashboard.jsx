@@ -10,7 +10,6 @@ const Dashboard = () => {
     localStorage.removeItem("user")
     navigate("/login");
   }
-
   return (
     <div className="min-h-screen bg-slate-100">
 
@@ -19,20 +18,16 @@ const Dashboard = () => {
         <h1 className="text-2xl font-bold text-indigo-600">
           Mobile App
         </h1>
-
         <div className="flex items-center gap-4">
-
           <span>
             Welcome, {user?.name}
           </span>
-
           <button
             onClick={handleLogout}
             className="bg-red-500 text-white px-4 py-2 rounded-lg"
           >
             Logout
           </button>
-
           <button
             onClick={() => navigate("/create-mobile")}
             className="bg-indigo-600 text-white px-4 py-2 rounded-lg"
