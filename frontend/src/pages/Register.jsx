@@ -1,8 +1,10 @@
 import axios from 'axios'
 import React from 'react'
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const Register = () => {
+    const navigate = useNavigate()
     const [formData, setFormData] = useState({
         name: "",
         email: "",
@@ -25,6 +27,7 @@ const Register = () => {
                 email: "",
                 password: ""
             })
+            navigate("/login")
 
         } catch (error) {
             console.log("Failed to Register user", error.message)
