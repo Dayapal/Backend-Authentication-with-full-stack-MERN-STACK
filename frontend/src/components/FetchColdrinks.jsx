@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from "../api/axios";
 import React, { useEffect, useState } from "react";
 
 const FetchColdrinks = () => {
@@ -42,7 +42,6 @@ const FetchColdrinks = () => {
       console.log(error.message);
     }
   };
-
 
   const deleteDrink = async (id) => {
     try {
