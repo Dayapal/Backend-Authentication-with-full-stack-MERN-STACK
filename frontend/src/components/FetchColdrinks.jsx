@@ -29,7 +29,6 @@ const FetchColdrinks = () => {
       );
 
       setData((prev) => [...prev, res.data.data]);
-
       setForm({
         name: "",
         flavour: "",
@@ -97,7 +96,6 @@ const FetchColdrinks = () => {
 
   return (
     <div className="min-h-screen bg-gray-100 p-8">
-
       <h1 className="text-4xl font-bold text-center text-blue-700 mb-8">
         Cold Drinks CRUD App
       </h1>
@@ -115,8 +113,7 @@ const FetchColdrinks = () => {
             onChange={(e) =>
               setForm({ ...form, name: e.target.value })
             }
-            className="w-full border p-3 rounded-lg"
-          />
+            className="w-full border p-3 rounded-lg"/>
 
           <input
             type="text"
@@ -127,7 +124,6 @@ const FetchColdrinks = () => {
             }
             className="w-full border p-3 rounded-lg"
           />
-
           <input
             type="number"
             placeholder="Enter Quantity"
@@ -196,9 +192,7 @@ const FetchColdrinks = () => {
                     });
                   }}
                   className="flex-1 bg-yellow-500 text-white py-2 rounded-lg hover:bg-yellow-600"
-                >
-                  Edit
-                </button>
+                > Edit</button>
                 <button
                   onClick={() => deleteDrink(item._id)}
                   className="flex-1 bg-red-600 text-white py-2 rounded-lg hover:bg-red-700">
