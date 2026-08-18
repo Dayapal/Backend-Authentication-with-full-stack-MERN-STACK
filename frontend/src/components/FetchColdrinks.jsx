@@ -9,7 +9,6 @@ const FetchColdrinks = () => {
     flavour: "",
     quantity: "",
   });
-
   const [editId, setEditId] = useState(null);
 
   const fetchData = async () => {
@@ -140,7 +139,6 @@ const FetchColdrinks = () => {
           />
 
           <div className="flex gap-3">
-
             <button
               onClick={handleSubmit}
               className="flex-1 bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700"
