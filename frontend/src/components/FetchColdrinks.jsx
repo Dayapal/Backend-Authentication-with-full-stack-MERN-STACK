@@ -21,7 +21,8 @@ const FetchColdrinks = () => {
     }
   };
 
-  const addDrink = async () => {
+  const addDrink = async (e) => {
+   
     try {
       const res = await axios.post(
         "http://localhost:3000/coldrink",
@@ -84,11 +85,11 @@ const FetchColdrinks = () => {
     }
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async() => {
     if (editId) {
-      updateDrink();
+      await  updateDrink();
     } else {
-      addDrink();
+     await addDrink();
     }
   };
 

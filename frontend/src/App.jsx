@@ -39,6 +39,14 @@ const App = () => {
             </ProctedRoute>
           }
         />
+        <Route
+          path='/fetch-coldrinks'
+          element={
+            <ProctedRoute>
+             <FetchColdrinks/>
+            </ProctedRoute>
+          }
+        />
 
       </Routes>
     </BrowserRouter>

@@ -166,8 +166,6 @@ const CreateMobile = () => {
                   required
                 />
               </div>
-
-              {/* RAM */}
               <div>
                 <label
                   htmlFor="ram"
