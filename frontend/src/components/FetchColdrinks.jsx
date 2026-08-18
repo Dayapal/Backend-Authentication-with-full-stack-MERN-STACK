@@ -114,7 +114,6 @@ const FetchColdrinks = () => {
               setForm({ ...form, name: e.target.value })
             }
             className="w-full border p-3 rounded-lg"/>
-
           <input
             type="text"
             placeholder="Enter Flavour"
