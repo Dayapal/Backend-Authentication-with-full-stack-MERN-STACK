@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 
 const FetchColdrinks = () => {
   const [data, setData] = useState([]);
-
   const [form, setForm] = useState({
     name: "",
     flavour: "",
@@ -27,7 +26,6 @@ const FetchColdrinks = () => {
         "http://localhost:3000/coldrink",
         form
       );
-
       setData((prev) => [...prev, res.data.data]);
       setForm({
         name: "",
@@ -130,8 +128,7 @@ const FetchColdrinks = () => {
             onChange={(e) =>
               setForm({ ...form, quantity: e.target.value })
             }
-            className="w-full border p-3 rounded-lg"
-          />
+            className="w-full border p-3 rounded-lg" />
 
           <div className="flex gap-3">
             <button
@@ -155,7 +152,6 @@ const FetchColdrinks = () => {
                 Cancel
               </button>
             )}
-
           </div>
         </div>
       </div>
