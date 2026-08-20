@@ -19,17 +19,7 @@ export const createMobile = async (req, res) => {
       image = result.secure_url;
       imagePublicId = result.public_id;
     }
-    const mobile = await Mobile.create({
-      name,
-      price,
-      color,
-      companyName,
-      ram,
-      camera,
-      image,
-      imagePublicId,
-    });
-
+    const mobile = await Mobile.create({name,price,color,companyName,ram,camera,image,imagePublicId,}); 
     return res.status(201).json({
       success: true,
       message: "Mobile created successfully",
