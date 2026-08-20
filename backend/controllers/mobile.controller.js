@@ -26,11 +26,14 @@ export const createMobile = async (req, res) => {
       data: mobile,
     });
   } catch (error) {
-    console.error("Create mobile error:", error);
-    return res.status(500).json({
-      success: false,
-      message: error.message,
-    });
+     console.error("Create mobile error:", error);
+  console.error("Cloudinary error:", error?.error);
+
+  return res.status(500).json({
+    success: false,
+    message: error.message,
+    cloudinaryError: error?.error?.message || null,
+  });
   }
 };
 
