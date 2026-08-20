@@ -3,8 +3,6 @@ import React, { useEffect, useState } from "react";
 
 const MobileFetch = () => {
   const [mobile, setMobile] = useState([]);
-
-  // Edit state
   const [editId, setEditId] = useState(null);
 
   const [form, setForm] = useState({
@@ -16,9 +14,7 @@ const MobileFetch = () => {
     camera: "",
   });
 
-  // =========================
-  // Fetch Mobiles
-  // =========================
+ 
   const fetchMobile = async () => {
     try {
       const res = await axios.get("/mobiles");
@@ -31,9 +27,6 @@ const MobileFetch = () => {
     }
   };
 
-  // =========================
-  // Delete Mobile
-  // =========================
   const deleteMobile = async (id) => {
     try {
       await axios.delete(`/mobile/${id}`);
@@ -50,9 +43,6 @@ const MobileFetch = () => {
     }
   };
 
-  // =========================
-  // Open Update Form
-  // =========================
   const handleEdit = (item) => {
     setEditId(item._id);
 
@@ -78,9 +68,6 @@ const MobileFetch = () => {
     }));
   };
 
-  // =========================
-  // Update Mobile
-  // =========================
   const updateMobile = async (e) => {
     e.preventDefault();
 
@@ -106,10 +93,8 @@ const MobileFetch = () => {
 
       alert("Mobile updated successfully");
 
-      // Close edit form
+   
       setEditId(null);
-
-      // Reset form
       setForm({
         name: "",
         price: "",
