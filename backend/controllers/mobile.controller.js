@@ -1,27 +1,48 @@
 import Mobile from "../model/mobile.model.js";
 import User from "../model/user.model.js";
+import uploadToCloudinary from "../utils/uploadToCloudinary.js";
 
 export const createMobile = async (req, res) => {
-    try {
-        const mobile = new Mobile(req.body);
-        await mobile.save();
-        res.status(201).json({
-            success: true,
-            message: "Mobile created successfully",
-            data: mobile,
-        })
-
-    } catch (error) {
-        console.log("Failed to create mobiel ", error.message);
-        res.status(400).json({
-            success: false,
-            message: "Failed to create mobile",
-            error: error.message
-        })
-
+  try {
+    const {name,price,color,companyName,ram, camera, } = req.body;
+    if (!name ||!price ||!color || !companyName ||!ram ||!camera
+    ) {
+      return res.status(400).json({
+        success: false,
+        message: "Please fill all fields",
+      });
     }
-}
+    let image = "";
+    let imagePublicId = "";
+    if (req.file) {
+      const result = await uploadToCloudinary(req.file.buffer,"mobiles");
+      image = result.secure_url;
+      imagePublicId = result.public_id;
+    }
+    const mobile = await Mobile.create({
+      name,
+      price,
+      color,
+      companyName,
+      ram,
+      camera,
+      image,
+      imagePublicId,
+    });
 
+    return res.status(201).json({
+      success: true,
+      message: "Mobile created successfully",
+      data: mobile,
+    });
+  } catch (error) {
+    console.error("Create mobile error:", error);
+    return res.status(500).json({
+      success: false,
+      message: error.message,
+    });
+  }
+};
 
 export const getMobiles = async (req, res) => {
     try {
