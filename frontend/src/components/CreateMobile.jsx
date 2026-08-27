@@ -12,7 +12,6 @@ const CreateMobile = () => {
   });
 
   const [image, setImage] = useState(null);
-
   const handleChange = (e) => {
     setFormData({
       ...formData,
