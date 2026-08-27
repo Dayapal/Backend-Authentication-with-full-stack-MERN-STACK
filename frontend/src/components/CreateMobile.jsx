@@ -24,15 +24,11 @@ const CreateMobile = () => {
 
     try {
       const data = new FormData();
-
       Object.keys(formData).forEach((key) => {
         data.append(key, formData[key]);
       });
-
       data.append("image", image);
-
       await axios.post("http://localhost:3000/mobile", data);
-
       alert("Mobile created successfully");
 
       setFormData({
@@ -111,7 +107,6 @@ const CreateMobile = () => {
             className="w-full rounded border p-3"
             required
           />
-
           <input
             type="text"
             name="camera"
