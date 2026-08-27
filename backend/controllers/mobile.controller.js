@@ -60,8 +60,6 @@ export const getMobiles = async (req, res) => {
             message: "Failed to get mobiles",
             error: error.message
         })
-
-
     }
 }
 
@@ -71,12 +69,10 @@ export const updateMobile = async (req, res) => {
             req.params.id,
             req.body,
             {
-
                 new: true,
                 runValidators: true,
             }
         );
-
         if (!mobile) {
             return res.status(404).json({
                 success: false,
@@ -100,8 +96,6 @@ export const updateMobile = async (req, res) => {
 
     }
 }
-
-
 
 export const deleteMobile = async (req, res) => {
     try {
