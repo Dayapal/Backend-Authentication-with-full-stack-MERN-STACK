@@ -44,15 +44,11 @@ const MobileFetch = () => {
             key={item._id}
             className="rounded-lg border bg-white p-4 shadow"
           >
-
-  
             <img
               src={item.image}
               alt={item.name}
               className="mb-4 h-52 w-full object-contain"
             />
-
-            {/* Mobile Details */}
             <h2 className="text-xl font-bold">
               {item.name}
             </h2>

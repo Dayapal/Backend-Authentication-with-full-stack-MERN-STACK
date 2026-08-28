@@ -102,10 +102,6 @@ const MobileFetch = () => {
       alert("Failed to update mobile");
     }
   };
-
-  // =========================
-  // Cancel Update
-  // =========================
   const cancelUpdate = () => {
     setEditId(null);
 
@@ -153,8 +149,6 @@ const MobileFetch = () => {
               placeholder="Price"
               className="border p-3 rounded-md"
             />
-
-            {/* Color */}
             <input
               type="text"
               name="color"
@@ -164,7 +158,6 @@ const MobileFetch = () => {
               className="border p-3 rounded-md"
             />
 
-            {/* RAM */}
             <input
               type="text"
               name="ram"
@@ -174,7 +167,6 @@ const MobileFetch = () => {
               className="border p-3 rounded-md"
             />
 
-            {/* Company */}
             <input
               type="text"
               name="companyName"
@@ -183,8 +175,6 @@ const MobileFetch = () => {
               placeholder="Company Name"
               className="border p-3 rounded-md"
             />
-
-            {/* Camera */}
             <input
               type="text"
               name="camera"
@@ -194,7 +184,7 @@ const MobileFetch = () => {
               className="border p-3 rounded-md"
             />
 
-            {/* Buttons */}
+
             <div className="md:col-span-2 flex justify-center gap-4">
               <button
                 type="submit"
@@ -214,10 +204,6 @@ const MobileFetch = () => {
           </form>
         </div>
       )}
-
-      {/* =========================
-          MOBILE LIST
-      ========================= */}
       {mobile.length === 0 ? (
         <h1 className="text-center text-2xl bg-pink-700 text-white p-5">
           Mobile not Fetch Yet
@@ -271,7 +257,6 @@ const MobileFetch = () => {
                 {item.camera}
               </h1>
 
-              {/* Buttons */}
               <div className="flex justify-between mt-4">
                 <button
                   onClick={() => deleteMobile(item._id)}
