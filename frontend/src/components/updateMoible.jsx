@@ -55,10 +55,6 @@ const MobileFetch = () => {
       camera: item.camera || "",
     });
   };
-
-  // =========================
-  // Handle Input Change
-  // =========================
   const handleChange = (e) => {
     const { name, value } = e.target;
 
@@ -78,8 +74,6 @@ const MobileFetch = () => {
       );
 
       console.log("Updated mobile:", res.data);
-
-      // Update UI without fetching again
       setMobile((prev) =>
         prev.map((item) =>
           item._id === editId
@@ -124,10 +118,6 @@ const MobileFetch = () => {
       camera: "",
     });
   };
-
-  // =========================
-  // useEffect
-  // =========================
   useEffect(() => {
     fetchMobile();
   }, []);
@@ -137,10 +127,6 @@ const MobileFetch = () => {
       <h1 className="text-center text-2xl bg-amber-300 p-3">
         All Mobiles here
       </h1>
-
-      {/* =========================
-          UPDATE FORM
-      ========================= */}
       {editId && (
         <div className="bg-gray-100 p-6 m-5 rounded-md shadow-md">
           <h2 className="text-2xl font-bold text-center mb-5">
@@ -151,7 +137,6 @@ const MobileFetch = () => {
             onSubmit={updateMobile}
             className="grid grid-cols-1 md:grid-cols-2 gap-4"
           >
-            {/* Name */}
             <input
               type="text"
               name="name"
@@ -160,8 +145,6 @@ const MobileFetch = () => {
               placeholder="Mobile Name"
               className="border p-3 rounded-md"
             />
-
-            {/* Price */}
             <input
               type="number"
               name="price"
