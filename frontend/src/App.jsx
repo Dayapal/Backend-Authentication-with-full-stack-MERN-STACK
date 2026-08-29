@@ -23,13 +23,10 @@ const App = () => {
             </ProctedRoute> }/>
 
         <Route
-          path='/mobiles'
-          element={
+          path='/mobiles'element={
             <ProctedRoute>
               <MobileFetch />
-            </ProctedRoute>
-          }
-        />
+            </ProctedRoute> }/>
 
         <Route
           path='/create-mobile'
