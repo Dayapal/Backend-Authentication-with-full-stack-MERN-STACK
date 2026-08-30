@@ -34,8 +34,7 @@ const Login = () => {
         } catch (error) {
             console.log("Failed to login User")
             alert("Failed to Login User")
-        }
-    }
+        }}
     return (
         <div className='text-center bg-amber-500 m-10 flex flex-col'  >
             <h1 className='m-5 text-2xl '>Login User here</h1>

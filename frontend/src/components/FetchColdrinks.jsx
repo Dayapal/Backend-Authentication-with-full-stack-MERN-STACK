@@ -197,7 +197,6 @@ const FetchColdrinks = () => {
             </div>
           ))
         )}
-
       </div>
     </div>
   );
