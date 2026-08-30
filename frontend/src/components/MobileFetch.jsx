@@ -7,9 +7,7 @@ const MobileFetch = () => {
   const fetchMobile = async () => {
     try {
       const res = await axios.get("http://localhost:3000/mobiles");
-
       console.log("Mobile here:", res.data.data);
-
       setMobile(res.data.data);
     } catch (error) {
       console.log("Failed to fetch Mobile:", error.message);
@@ -42,8 +40,7 @@ const MobileFetch = () => {
         {mobile.map((item) => (
           <div
             key={item._id}
-            className="rounded-lg border bg-white p-4 shadow"
-          >
+            className="rounded-lg border bg-white p-4 shadow" >
             <img
               src={item.image}
               alt={item.name}

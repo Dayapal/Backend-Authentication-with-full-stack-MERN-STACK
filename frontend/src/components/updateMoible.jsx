@@ -166,7 +166,6 @@ const MobileFetch = () => {
               placeholder="RAM"
               className="border p-3 rounded-md"
             />
-
             <input
               type="text"
               name="companyName"
@@ -242,7 +241,6 @@ const MobileFetch = () => {
                 </span>
                 {item.ram}
               </h1>
-
               <h1>
                 <span className="text-indigo-600 mr-4">
                   Company:
