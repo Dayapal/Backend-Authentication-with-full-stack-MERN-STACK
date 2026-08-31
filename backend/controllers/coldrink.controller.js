@@ -86,7 +86,6 @@ export const updateColdrink = async(req,res) =>{
         
     }
 }
-
 export const deleteColdrink = async(req,res) =>{
     try {
         const coldrink = await Coldrink.findByIdAndDelete(req.params.id);

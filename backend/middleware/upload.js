@@ -9,7 +9,6 @@ const fileFilter = (req, file, cb) => {
     cb(new Error("Only image files are allowed"), false);
   }
 };
-
 const upload = multer({
   storage,
   fileFilter,
