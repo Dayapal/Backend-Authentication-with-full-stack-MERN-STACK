@@ -1,6 +1,4 @@
 import Person, { Student } from "../model/person.model.js"
-
-
 export const createPerson = async(req,res) =>{
     try {
         const person = new Person(req.body);

@@ -52,8 +52,6 @@ export const getColdrink = async(req,res) =>{
         })
     }
 }
-
-
 export const updateColdrink = async(req,res) =>{
     try {
         const coldrink = await Coldrink.findByIdAndUpdate(

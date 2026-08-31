@@ -83,14 +83,12 @@ export const updateStudents = async(req,res) =>{
                 runValidators: true
             }
         )
-
         if(!student){
             return res.status(400).json({
                 success:false,
                 message: "Student Not Found"
             })
         }
-
         res.status(200).json({
             success: true,
             message: `${student.name} Update sucessfully`,
