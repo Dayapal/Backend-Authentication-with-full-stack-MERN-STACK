@@ -67,7 +67,6 @@ const CreateMobile = () => {
             className="w-full rounded border p-3"
             required
           />
-
           <input
             type="text"
             name="companyName"
@@ -87,7 +86,6 @@ const CreateMobile = () => {
             className="w-full rounded border p-3"
             required
           />
-
           <input
             type="text"
             name="color"
@@ -97,7 +95,6 @@ const CreateMobile = () => {
             className="w-full rounded border p-3"
             required
           />
-
           <input
             type="text"
             name="ram"
