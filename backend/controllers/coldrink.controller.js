@@ -42,7 +42,6 @@ export const getColdrink = async(req,res) =>{
             data: coldrinks,
             count: coldrinks.length,
         })
-        
     } catch (error) {
         console.log("failed to get coldrink", error.message);
         res.status(400).json({
